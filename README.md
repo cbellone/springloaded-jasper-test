@@ -20,13 +20,15 @@ How to reproduce the issue
 
 4) open a browser and access the [application](http://localhost:8080/springloaded-jasper-test/).
 At this stage, the index.jsp won't compile and you'll get the following error:
-
+<pre>
+<code>
    PWC6197: An error occurred at line: 9 in the jsp file: /index.jsp
    PWC6199: Generated servlet error:
    cannot find symbol
        symbol:   method getItalianGreeting()
        location: variable bean of type test.GreetingsBean
-
+</code>
+</pre>
 5) go back to the source code, uncomment the "getItalianGreeting" method in the test.GreetingsBean class and recompile that class.
 
 6) refresh the application page. You should receive the following error:
