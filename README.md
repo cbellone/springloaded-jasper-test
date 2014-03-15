@@ -6,19 +6,19 @@ Test application in order to reproduce spring-loaded issues with Jasper JSP engi
 How to reproduce the issue
 --------------------------
 
-1. build the project
+1) build the project
 
 > mvn clean install
 
-2. set the MVN_OPTS environment variable in order to add Spring-loaded as agent for yor application
+2) set the MVN_OPTS environment variable in order to add Spring-loaded as agent for yor application
 
 > export MVN_OPTS="-javaagent:lib/springloaded-1.2.0.BUILD-SNAPSHOT.jar -noverify"
 
-3. launch jetty
+3) launch jetty
 
 > mvn jetty:run
 
-4. open a browser and access the [application](http://localhost:8080/springloaded-jasper-test/).
+4) open a browser and access the [application](http://localhost:8080/springloaded-jasper-test/).
 At this stage, the index.jsp won't compile and you'll get the following error:
 
 > PWC6197: An error occurred at line: 9 in the jsp file: /index.jsp
@@ -27,9 +27,9 @@ At this stage, the index.jsp won't compile and you'll get the following error:
 >    symbol:   method getItalianGreeting()
 >    location: variable bean of type test.GreetingsBean
 
-5. go back to the source code, uncomment the "getItalianGreeting" method in the test.GreetingsBean class and recompile that class.
+5) go back to the source code, uncomment the "getItalianGreeting" method in the test.GreetingsBean class and recompile that class.
 
-6. refresh the application page. You should receive the following error:
+6) refresh the application page. You should receive the following error:
 
 > java.lang.NoSuchMethodError: test.GreetingsBean.getItalianGreeting()Ljava/lang/String;
 >   	at org.apache.jsp.index_jsp._jspService(index_jsp.java:63)
